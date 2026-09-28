@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A personal invitation to a very special surprise celebration." />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>A Very Special Invitation</title>
+
+  <!-- Cormorant Garamond + Cinzel (cinematic display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     SCENE 1 — THE SECRET ("SHHH...")
+     Full-viewport opening. Position:fixed so it covers #main.
+     Visual hush line-art + subtle rainy atmosphere (no emojis).
+     Dismissed by #btn-open; script.js handles the transition.
+     ============================================================ -->
+<div id="secret" role="dialog" aria-modal="true" aria-label="Welcome">
+  <!-- Subtle falling rain / light streaks atmosphere -->
+  <div class="secret-rain" aria-hidden="true">
+    <span class="rain-streak" style="left:6%; animation-delay:0s; animation-duration:4.2s;"></span>
+    <span class="rain-streak" style="left:14%; animation-delay:1.5s; animation-duration:4.8s;"></span>
+    <span class="rain-streak" style="left:23%; animation-delay:0.7s; animation-duration:3.9s;"></span>
+    <span class="rain-streak" style="left:31%; animation-delay:2.2s; animation-duration:4.5s;"></span>
+    <span class="rain-streak" style="left:42%; animation-delay:1.1s; animation-duration:5.1s;"></span>
+    <span class="rain-streak" style="left:53%; animation-delay:2.8s; animation-duration:4.3s;"></span>
+    <span class="rain-streak" style="left:62%; animation-delay:0.3s; animation-duration:4.7s;"></span>
+    <span class="rain-streak" style="left:71%; animation-delay:1.8s; animation-duration:4.1s;"></span>
+    <span class="rain-streak" style="left:82%; animation-delay:2.5s; animation-duration:5.3s;"></span>
+    <span class="rain-streak" style="left:92%; animation-delay:0.9s; animation-duration:4.4s;"></span>
+  </div>
+
+  <div class="secret-inner">
+    <!-- Elegant custom line-art silhouette of the finger-to-lips hush gesture (NO emojis) -->
+    <div class="secret-silhouette" aria-hidden="true">
+      <svg class="hush-svg" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="goldHushGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+            <stop offset="0%" stop-color="#FFF2D1" />
+            <stop offset="45%" stop-color="#E0C882" />
+            <stop offset="100%" stop-color="#B8872A" />
+          </linearGradient>
+          <radialGradient id="hushGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#E0C882" stop-opacity="0.18" />
+            <stop offset="100%" stop-color="#E0C882" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <!-- Soft golden aura -->
+        <ellipse cx="50" cy="58" rx="42" ry="46" fill="url(#hushGlow)" />
+        
+        <!-- Elegant face profile contour -->
+        <path d="M 42 22 C 48 24 53 29 53 37 C 53 40 49 44 51 47 C 53 50 56 50.5 56 52 C 56 53.5 53 54.5 53 57 C 53 59 55 60.5 55 62.5 C 54.5 66.5 48 69.5 45 71 C 41 72.5 38 75.5 36 81" 
+              stroke="url(#goldHushGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        
+        <!-- Serene eye & brow arc -->
+        <path d="M 40 37 C 43 36 47 37.5 49 39.5" stroke="url(#goldHushGrad)" stroke-width="1.4" stroke-linecap="round" opacity="0.75" />
+        <path d="M 43 43 C 45 44 47 43 48.5 42" stroke="url(#goldHushGrad)" stroke-width="1.2" stroke-linecap="round" opacity="0.6" />
+        
+        <!-- Forefinger raised gently against lips -->
+        <path d="M 57.5 44 C 57.5 41 61 41 61 44 L 61 68 C 61 71.5 63 74.5 65.5 77.5 L 67 85 C 68 90 67 96 66 102" 
+              stroke="url(#goldHushGrad)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+        
+        <!-- Finger crease & knuckle definition -->
+        <path d="M 58 50 C 57 55 57 61 58 66" stroke="url(#goldHushGrad)" stroke-width="1.3" stroke-linecap="round" opacity="0.7" />
+        
+        <!-- Graceful curled fingers & palm silhouette -->
+        <path d="M 61 62 C 65.5 62 68.5 64.5 68.5 68 C 68.5 71 65.5 73 62 73" 
+              stroke="url(#goldHushGrad)" stroke-width="1.4" stroke-linecap="round" opacity="0.7" />
+        <path d="M 62 72.5 C 67 72.5 70 75 69.5 78 C 69.5 81 66 82 63 82" 
+              stroke="url(#goldHushGrad)" stroke-width="1.4" stroke-linecap="round" opacity="0.6" />
+        <path d="M 63 81.5 C 67 82 69 85 68 88 C 67.5 90 64.5 91 61.5 90" 
+              stroke="url(#goldHushGrad)" stroke-width="1.4" stroke-linecap="round" opacity="0.5" />
+        
+        <!-- Wrist & thumb line -->
+        <path d="M 57 74 C 54 78 53 84 54 90 L 56 102" 
+              stroke="url(#goldHushGrad)" stroke-width="1.6" stroke-linecap="round" opacity="0.65" />
+      </svg>
+    </div>
+
+    <div class="secret-rule" aria-hidden="true"></div>
+    <h1 class="secret-shhh">SHHH&hellip;</h1>
+    <p class="secret-copy">
+      Amma doesn&rsquo;t know yet.<br />
+      You&rsquo;re about to open something very special.
+    </p>
+    <div class="secret-cta">
+      <button id="btn-open" class="btn btn-invitation" type="button">
+        Open the Invitation
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     MAIN SITE — revealed after secret is dismissed
+     Starts opacity:0 via JS (.dim class). Fades in on reveal.
+     ============================================================ -->
+<main id="main">
+
+
+  <!-- ============================================================
+       SCENE 2 — THE STAR REVEAL (HERO)
+       Mobile: photo top, cinema title treatment below.
+       Desktop: photo left 54%, cinematic title panel right 46%.
+       ============================================================ -->
+  <section id="hero" aria-label="Amma's 70th Bollywood Birthday Bash">
+
+    <!-- Golden-wings photograph — Amma's signature hero portrait -->
+    <div class="hero-photo-wrap">
+      <img
+        class="hero-img"
+        src="amma-golden-wings.jpg"
+        alt="Amma with spectacular golden wings, radiant and celebratory"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+
+    <!-- Cinematic right-hand title & presentation panel -->
+    <div class="hero-text">
+      <!-- Eyebrow with film premiere motif -->
+      <div class="hero-eyebrow-wrap fi" data-d="1">
+        <span class="hero-gem" aria-hidden="true">&#9670;</span>
+        <p class="eyebrow hero-eyebrow">A Surprise Celebration &bull; One Night Only</p>
+        <span class="hero-gem" aria-hidden="true">&#9670;</span>
+      </div>
+
+      <!-- Cinematic Title Composition: AMMA'S / 70TH / BOLLYWOOD BIRTHDAY BASH -->
+      <div class="hero-title-group fi" data-d="2" role="heading" aria-level="1">
+        <span class="t-name">AMMA&rsquo;S</span>
+        <div class="t-centerpiece">
+          <span class="t-num">70</span>
+          <span class="t-th">TH</span>
+        </div>
+        <div class="t-banner">
+          <span class="banner-flourish" aria-hidden="true"></span>
+          <span class="t-sub">BOLLYWOOD BIRTHDAY BASH</span>
+          <span class="banner-flourish" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <!-- Supporting copy: Amma is the star of the night -->
+      <p class="hero-body fi" data-d="3">
+        70 years of warmth, grace, and boundless love.<br />
+        Tonight, our leading lady takes centre stage.
+      </p>
+
+      <!-- Primary CTA + polished secondary link -->
+      <div class="hero-actions fi" data-d="4">
+        <a href="#rsvp" class="btn btn-crimson-hero">Reserve Your Seat</a>
+        <a href="#invitation" class="btn btn-ghost-hero">View Invitation</a>
+      </div>
+    </div>
+
+  </section><!-- /hero -->
+
+
+  <!-- ============================================================
+       SCENE 3 — THE INVITATION ("YOU ARE INVITED")
+       Desktop: 2-column film-poster spread (Typeset card left + cinema stage art right).
+       Mobile: Details first, followed by atmospheric celebration visual.
+       No invented facts — all real details verified.
+       ============================================================ -->
+  <section id="invitation" aria-label="Event details">
+    <div class="inv-spread">
+
+      <!-- Left column: Beautifully typeset invitation card -->
+      <div class="inv-card fi">
+        <div class="inv-card-inner">
+          <div class="inv-card-header">
+            <span class="inv-filigree-icon" aria-hidden="true">&#10022;</span>
+            <p class="eyebrow inv-eyebrow">YOU ARE INVITED</p>
+            <h2 class="inv-title">
+              Amma&rsquo;s 70th<br />
+              <span class="inv-title-gold">Bollywood Birthday Bash</span>
+            </h2>
+            <div class="inv-divider-line" aria-hidden="true">
+              <span class="inv-line-half"></span>
+              <span class="inv-gem">&#9670;</span>
+              <span class="inv-line-half"></span>
+            </div>
+            <p class="inv-subtitle">
+              Join us to celebrate the queen of our hearts on her milestone 70th birthday.
+            </p>
+          </div>
+
+          <!-- Event details: date, time, venue -->
+          <ul class="inv-detail-list" aria-label="Event date, time and venue">
+            <li class="inv-detail-item">
+              <div class="inv-detail-badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </div>
+              <div class="inv-detail-meta">
+                <span class="inv-detail-label">DATE</span>
+                <span class="inv-detail-value">Saturday, 21 November 2026</span>
+              </div>
+            </li>
+
+            <li class="inv-detail-item">
+              <div class="inv-detail-badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div class="inv-detail-meta">
+                <span class="inv-detail-label">TIME</span>
+                <span class="inv-detail-value">7:00 PM</span>
+              </div>
+            </li>
+
+            <li class="inv-detail-item">
+              <div class="inv-detail-badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="inv-detail-meta">
+                <span class="inv-detail-label">VENUE</span>
+                <span class="inv-detail-value">Alpha Event Hall</span>
+                <span class="inv-detail-sub">
+                  Pusat Komersil KOI, 1-3A<br />
+                  Batu 13&frac12;, Jln Puchong<br />
+                  47100 Puchong, Selangor
+                </span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Surprise notice -->
+          <div class="inv-surprise-box">
+            <span class="surprise-tag" aria-hidden="true">&#9733; STRICTLY CONFIDENTIAL &#9733;</span>
+            <p class="inv-surprise-text">
+              Amma doesn&rsquo;t know yet! Please help us keep this celebration a complete surprise until the night arrives.
+            </p>
+          </div>
+        </div>
+      </div><!-- /inv-card -->
+
+      <!-- Right column: Strong cinematic visual composition (stage lights, chandeliers, velvet) -->
+      <div class="inv-visual-col fi" data-d="2">
+        <div class="inv-visual-frame">
+          <img
+            src="invitation-stage.jpg"
+            alt="Glamorous Bollywood premiere stage with velvet drapery, crystal chandeliers and golden stage lights"
+            class="inv-visual-img"
+            loading="lazy"
+          />
+          <div class="inv-visual-overlay"></div>
+          <div class="inv-visual-caption">
+            <p class="visual-tag">THE PREMIERE NIGHT</p>
+            <p class="visual-quote">&ldquo;Lights, music, and an unforgettable milestone.&rdquo;</p>
+          </div>
+        </div>
+      </div><!-- /inv-visual-col -->
+
+    </div><!-- /inv-spread -->
+  </section><!-- /invitation -->
+
+
+  <!-- ============================================================
+       SCENE 4 — HER FINEST MOMENTS (THREE SUPPORTING PHOTOGRAPHS)
+       Mobile: Clean, generous vertical sequence. Large & clear.
+       Desktop: Refined editorial triptych layout with consistent borders & spacing.
+       Intentional crops that preserve Amma's face and the spirit of each moment.
+       ============================================================ -->
+  <!-- ============================================================
+       SCENE 4 — HER FINEST MOMENTS (THREE SUPPORTING PHOTOGRAPHS)
+       Cinematic editorial gallery with intentional crops & tap-to-enlarge.
+       01: Amma's portrait in white & pink shawl (9:16 portrait)
+       02: Michael Jackson display wide dance scene (16:9 landscape)
+       03: Heart-shaped sunglasses & flower filter (3:4 portrait)
+       ============================================================ -->
+  <section id="moments" aria-label="Amma's finest moments">
+
+    <div class="moments-intro fi">
+      <div class="moments-eyebrow-line">
+        <span class="moments-gem" aria-hidden="true">&#9670;</span>
+        <p class="eyebrow moments-eyebrow">THE LEADING LADY HERSELF</p>
+        <span class="moments-gem" aria-hidden="true">&#9670;</span>
+      </div>
+      <h2 class="moments-heading">Her Finest Moments</h2>
+      <p class="moments-subhead">Every era, every smile, always unforgettable.</p>
+    </div>
+
+    <!-- Editorial gallery composition -->
+    <div class="moments-editorial-grid">
+
+      <!-- Moment 1: White and pink shawl portrait with room to breathe and timeless grace -->
+      <article
+        class="moment-item moment-portrait fi"
+        data-d="1"
+        role="button"
+        tabindex="0"
+        aria-label="Enlarge photo: Timeless Grace portrait"
+        data-img-src="amma-star-portrait.jpg"
+        data-img-title="Timeless Grace"
+        data-img-caption="Amma in white draped in a bright pink shawl with timeless elegance, warmth, and enduring poise."
+      >
+        <div class="moment-frame">
+          <img
+            src="amma-star-portrait.jpg"
+            alt="Amma in white draped in a bright pink shawl with timeless elegance and warmth"
+            loading="lazy"
+            class="moment-img portrait-crop"
+          />
+          <div class="moment-zoom-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <span>Tap to view</span>
+          </div>
+          <div class="moment-overlay-accent"></div>
+        </div>
+        <div class="moment-meta">
+          <div class="moment-tag-row">
+            <span class="moment-num">SCENE 01</span>
+            <span class="moment-label">Timeless Grace</span>
+          </div>
+          <p class="moment-caption">Draped in warmth, radiant with enduring poise.</p>
+        </div>
+      </article>
+
+      <!-- Moment 2: Michael Jackson dance display wide scene properly shown -->
+      <article
+        class="moment-item moment-mj fi"
+        data-d="2"
+        role="button"
+        tabindex="0"
+        aria-label="Enlarge photo: Born For The Spotlight dance display"
+        data-img-src="amma-mj-dance.jpg"
+        data-img-title="Born For The Spotlight"
+        data-img-caption="Amma posing playfully at a Michael Jackson display full of energy, joy, and star spirit."
+      >
+        <div class="moment-frame">
+          <img
+            src="amma-mj-dance.jpg"
+            alt="Amma posing playfully at a Michael Jackson display full of energy and joy"
+            loading="lazy"
+            class="moment-img mj-crop"
+          />
+          <div class="moment-zoom-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <span>Tap to view</span>
+          </div>
+          <div class="moment-overlay-accent"></div>
+        </div>
+        <div class="moment-meta">
+          <div class="moment-tag-row">
+            <span class="moment-num">SCENE 02</span>
+            <span class="moment-label">Born For The Spotlight</span>
+          </div>
+          <p class="moment-caption">Unstoppable rhythm and legendary star energy.</p>
+        </div>
+      </article>
+
+      <!-- Moment 3: Heart sunglasses, playful and warm, closes on a joyful note -->
+      <article
+        class="moment-item moment-sunglasses fi"
+        data-d="3"
+        role="button"
+        tabindex="0"
+        aria-label="Enlarge photo: Forever Young"
+        data-img-src="amma-heart-sunglasses.jpg"
+        data-img-title="Forever Young"
+        data-img-caption="Amma wearing heart shaped sunglasses with a flower filter, playful, cool, and full of life."
+      >
+        <div class="moment-frame">
+          <img
+            src="amma-heart-sunglasses.jpg"
+            alt="Amma wearing heart shaped sunglasses with a flower filter, playful and full of life"
+            loading="lazy"
+            class="moment-img sunglasses-crop"
+          />
+          <div class="moment-zoom-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <span>Tap to view</span>
+          </div>
+          <div class="moment-overlay-accent"></div>
+        </div>
+        <div class="moment-meta">
+          <div class="moment-tag-row">
+            <span class="moment-num">SCENE 03</span>
+            <span class="moment-label">Forever Young</span>
+          </div>
+          <p class="moment-caption">Still the coolest, warmest heart in any room.</p>
+        </div>
+      </article>
+
+    </div><!-- /moments-editorial-grid -->
+
+  </section><!-- /moments -->
+
+
+  <!-- ============================================================
+       SCENE 5 — RSVP FORM ("BE PART OF HER BIG NIGHT")
+       Festive Bollywood celebration background ambiance + solid readable form card.
+       ============================================================ -->
+  <section id="rsvp" aria-label="RSVP">
+
+    <!-- Atmospheric celebration background -->
+    <div class="rsvp-bg-art" aria-hidden="true"></div>
+    <div class="rsvp-bg-overlay" aria-hidden="true"></div>
+
+    <div class="rsvp-inner">
+      <div class="rsvp-card">
+
+        <div class="rsvp-header">
+          <span class="rsvp-header-glyph" aria-hidden="true">&#10022;</span>
+          <p class="eyebrow rsvp-eyebrow">RESERVE YOUR SEAT</p>
+          <h2 class="rsvp-heading fi">Be Part of Her Big Night</h2>
+          <p class="rsvp-subhead fi" data-d="1">Let us know you&rsquo;re coming. It means the world to our family.</p>
+        </div>
+
+        <!-- RSVP Form -->
+        <form id="rsvp-form" class="fi" data-d="1" novalidate>
+
+          <!-- Full name -->
+          <div class="form-group">
+            <label class="form-label" for="f-name">
+              Full name <span aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form-input" type="text" id="f-name" name="name"
+              placeholder="Your full name"
+              autocomplete="name" required
+            />
+            <p class="form-err" id="err-name" role="alert"></p>
+          </div>
+
+          <!-- Mobile number -->
+          <div class="form-group">
+            <label class="form-label" for="f-mobile">
+              Mobile number <span aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form-input" type="tel" id="f-mobile" name="mobile"
+              placeholder="e.g. 012-345 6789"
+              autocomplete="tel" required
+            />
+            <p class="form-err" id="err-mobile" role="alert"></p>
+          </div>
+
+          <!-- Attendance -->
+          <div class="form-group">
+            <p class="form-label" id="attend-label">
+              Will you be joining us? <span aria-hidden="true">*</span>
+            </p>
+            <div class="attend-row" role="group" aria-labelledby="attend-label">
+              <button type="button" id="btn-yes" class="attend-btn" aria-pressed="false">
+                Yes, I&rsquo;ll be there
+              </button>
+              <button type="button" id="btn-no" class="attend-btn" aria-pressed="false">
+                Sorry, can&rsquo;t make it
+              </button>
+            </div>
+            <p class="form-err" id="err-attend" role="alert"></p>
+          </div>
+
+          <!-- Pax section (shown only when attending = yes) -->
+          <div id="pax-section">
+
+            <p class="pax-intro">
+              Let us know how many seats to prepare and your meal preferences.
+            </p>
+
+            <!-- Total guests -->
+            <div class="form-group">
+              <label class="form-label" for="f-pax">
+                Total guests including yourself <span aria-hidden="true">*</span>
+              </label>
+              <input
+                class="form-input" type="number" id="f-pax" name="total_pax"
+                min="1" step="1" placeholder="e.g. 2"
+              />
+              <p class="form-err" id="err-pax" role="alert"></p>
+            </div>
+
+            <!-- Meal counters -->
+            <div class="form-group">
+              <p class="form-label">Meal preference <span aria-hidden="true">*</span></p>
+              <p class="form-hint">Vegetarian + non-vegetarian must equal your total guests.</p>
+
+              <!-- Vegetarian -->
+              <div class="counter-row">
+                <span class="counter-name">Vegetarian</span>
+                <div class="counter-controls">
+                  <button type="button" class="counter-btn" id="veg-minus"
+                    aria-label="Fewer vegetarian meals" disabled>
+                    &minus;
+                  </button>
+                  <span class="counter-val" id="veg-val" aria-live="polite">0</span>
+                  <button type="button" class="counter-btn" id="veg-plus"
+                    aria-label="More vegetarian meals">
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <!-- Non-vegetarian -->
+              <div class="counter-row">
+                <span class="counter-name">Non-vegetarian</span>
+                <div class="counter-controls">
+                  <button type="button" class="counter-btn" id="nveg-minus"
+                    aria-label="Fewer non-vegetarian meals" disabled>
+                    &minus;
+                  </button>
+                  <span class="counter-val" id="nveg-val" aria-live="polite">0</span>
+                  <button type="button" class="counter-btn" id="nveg-plus"
+                    aria-label="More non-vegetarian meals">
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <p class="form-err" id="err-meals" role="alert"></p>
+            </div>
+
+            <!-- Dietary notes -->
+            <div class="form-group">
+              <label class="form-label" for="f-dietary">Allergies or dietary notes</label>
+              <input
+                class="form-input" type="text" id="f-dietary" name="dietary"
+                placeholder="e.g. nut allergy, halal, gluten-free (optional)"
+              />
+            </div>
+
+          </div><!-- /pax-section -->
+
+          <!-- Birthday wish -->
+          <div class="form-group">
+            <label class="form-label" for="f-wish">Birthday wish for Amma</label>
+            <textarea
+              class="form-input" id="f-wish" name="wish"
+              rows="4" maxlength="500"
+              placeholder="Write something from the heart&hellip; (optional)"
+            ></textarea>
+            <p class="char-count" id="char-count" aria-live="polite">500 characters remaining</p>
+          </div>
+
+          <!-- Display name for wish -->
+          <div class="form-group">
+            <label class="form-label" for="f-wish-name">Name to show with your wish</label>
+            <input
+              class="form-input" type="text" id="f-wish-name" name="wish_name"
+              placeholder="Defaults to your name if left blank (optional)"
+            />
+            <p class="form-hint">
+              Birthday wishes and the name shown with them may appear publicly in the wishes section.
+            </p>
+          </div>
+
+          <!-- Form status message (for network errors) -->
+          <div id="rsvp-status-msg" class="rsvp-status-msg" role="alert" style="display:none;"></div>
+
+          <!-- Submit -->
+          <button type="submit" id="btn-submit" class="btn-submit">
+            <span class="btn-submit-text">Send my response</span>
+            <span class="btn-spinner" aria-hidden="true" style="display:none;"></span>
+          </button>
+
+        </form><!-- /rsvp-form -->
+
+      </div><!-- /rsvp-card -->
+    </div><!-- /rsvp-inner -->
+  </section><!-- /rsvp -->
+
+
+  <!-- ============================================================
+       SCENE 6 — BIRTHDAY WISHES ("FOR THOSE WHO LOVE HER")
+       Displays populated sample wishes cards + dynamically fetches
+       live wishes if available from the backend.
+       ============================================================ -->
+  <section id="wishes" aria-label="Birthday wishes for Amma">
+    <div class="wishes-inner">
+
+      <div class="wishes-header fi">
+        <p class="eyebrow wishes-eyebrow">FROM THOSE WHO LOVE HER</p>
+        <h2 class="wishes-heading">Birthday Wishes</h2>
+        <p class="wishes-subhead">Heartfelt notes, warm blessings, and Bollywood love for Amma.</p>
+      </div>
+
+      <!-- Wishes grid: populated with sample wishes for design review -->
+      <div id="wishes-track" class="wishes-grid fi" data-d="1">
+
+        <!-- Sample Wish 1 -->
+        <article class="wish-card sample-wish">
+          <div class="wish-card-top">
+            <span class="wish-avatar" aria-hidden="true">&#10022;</span>
+            <div class="wish-author-info">
+              <h3 class="wish-author">[Sample] Priya &amp; Family</h3>
+              <span class="wish-label">Sample preview</span>
+            </div>
+          </div>
+          <p class="wish-body">
+            &ldquo;Happy 70th Birthday, dearest Amma! Your grace, boundless love, and joyful laughter light up every room you enter. Wishing you endless health and dancing on your milestone night!&rdquo;
+          </p>
+        </article>
+
+        <!-- Sample Wish 2 -->
+        <article class="wish-card sample-wish">
+          <div class="wish-card-top">
+            <span class="wish-avatar" aria-hidden="true">&#10022;</span>
+            <div class="wish-author-info">
+              <h3 class="wish-author">[Sample] Uncle Ravi</h3>
+              <span class="wish-label">Sample preview</span>
+            </div>
+          </div>
+          <p class="wish-body">
+            &ldquo;To the eternal superstar of our family! 70 years of spreading rhythm, kindness, and elegance wherever you go. Keep shining like the true Bollywood leading lady you are!&rdquo;
+          </p>
+        </article>
+
+        <!-- Sample Wish 3 -->
+        <article class="wish-card sample-wish">
+          <div class="wish-card-top">
+            <span class="wish-avatar" aria-hidden="true">&#10022;</span>
+            <div class="wish-author-info">
+              <h3 class="wish-author">[Sample] Anita K.</h3>
+              <span class="wish-label">Sample preview</span>
+            </div>
+          </div>
+          <p class="wish-body">
+            &ldquo;May your milestone 70th bash shine as brightly as your smile, Amma. Thank you for your warmth and love over all these years. Have an unforgettable evening!&rdquo;
+          </p>
+        </article>
+
+      </div><!-- /wishes-track -->
+
+    </div><!-- /wishes-inner -->
+  </section><!-- /wishes -->
+
+
+  <!-- ============================================================
+       BOLLYWOOD CONFIRMATION POP-UP MODAL (#rsvp-modal)
+       Shown ONLY after a validated successful RSVP submission.
+       ============================================================ -->
+  <div id="rsvp-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-window">
+      <button type="button" class="modal-close-btn" id="modal-close" aria-label="Close confirmation dialog">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="modal-filigree" aria-hidden="true">&#10022; &#10022; &#10022;</div>
+      <h3 id="modal-title" class="modal-heading">Response Received</h3>
+      
+      <div id="modal-content" class="modal-body">
+        <!-- Injected dynamically based on attendance -->
+      </div>
+
+      <div class="modal-event-recap">
+        <p class="recap-date">Saturday, 21 November 2026 &bull; 7:00 PM</p>
+        <p class="recap-venue">Alpha Event Hall, Puchong</p>
+        <p class="recap-secret">🤫 <em>Shhh... Please keep it a secret for Amma!</em></p>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-crimson modal-btn" id="modal-done-btn">Back to Invitation</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       PHOTO LIGHTBOX MODAL (#lightbox-modal)
+       Enlarged, uncropped cinematic view of Amma's photos.
+       ============================================================ -->
+  <div id="lightbox-modal" class="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Photo preview" hidden>
+    <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Close photo preview">
+      <span aria-hidden="true">&times;</span>
+      <span class="lightbox-close-label">Close</span>
+    </button>
+    
+    <div class="lightbox-content">
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="" class="lightbox-img" />
+      </div>
+      <div class="lightbox-caption-box">
+        <h4 id="lightbox-title" class="lightbox-title"></h4>
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-main">With love, for Amma&rsquo;s 70th.</p>
+    <p class="footer-reminder">Please keep this a surprise until the night itself.</p>
+    <p class="footer-credit">A personal creation by Web&amp;i</p>
+  </footer>
+
+</main><!-- /main -->
+
+<script src="script.js"></script>
+</body>
+</html>
